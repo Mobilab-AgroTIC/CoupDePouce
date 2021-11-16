@@ -1,7 +1,9 @@
 
 #define SECRET_PINNUMBER     "0000"
 
-#define ALEX     "+XXXXXXXXXX"
+
+#define ALEX     "+XXXXX"
 #define MAX     "+XXXXXXX"
-#define DENIS     "+XXXXXXx"
-#define SIMON     "+XXXXX"
+#define DENIS     "+XXXXXx"
+#define SIMON     "+XXXXXX"
+
