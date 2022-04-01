@@ -1,23 +1,25 @@
 /*
-  CoupDePouce.ino
+  CoupDePouce.ino v3.1
 
   Activate a stepmoter through SMS Message. Circuit needs an Arduino MKRWANGSM 1400 and a stepper motor 28byj-48 with ULN2003 driver
-  Activer un moteur a distance via l'envoi de SMS. Le montage nécessite une carte Arduino MKRWAN GSM 1400 ainsi qu'un moteur pas à pas 28byj-48 with ULN2003 driver
+  Activer un moteur a distance via l'envoi de SMS. Le montage nécessite une carte Arduino MKRWAN GSM 1400 ainsi qu'un moteur "pas à pas" 28byj-48 avec une carte associée "ULN2003 driver"
 
   The circuit:
+    
+    ** stepper <-> Arduino
+    
+    ** "-"   <->   pin GND
+    ** "+"   <->   pin VCC
 
-** - <-> pin GND
-** + <-> pin VCC
-
-** IN1 <-> pin 6
-** IN2 <-> pin 7
-** IN3 <-> pin 8
-** IN4 <-> pin 9
+    ** IN1   <->   pin 6
+    ** IN2   <->   pin 7
+    ** IN3   <->   pin 8
+    ** IN4   <->   pin 9
 
   Createad 25 March 2019
   modified 01 April 2022
-  v3.1
-  by Tom Igoe
+
+  by Simon Moinard
 
   This example code is in the public domain.
 
@@ -30,8 +32,8 @@
 const char PINNUMBER[] = SECRET_PINNUMBER;
 const char num1[] = num1;
 const char num2[] = num2;
-
-//Rajoutez une ligne ici pour rajouter un numéro de téléphone : const char num3[] = num3;
+//Vous pouvez enlever les // dans la ligne suivante pour ajouter un 3ème numéro
+//const char num3[] = num3;
 
 char senderNumber[20];
 
@@ -53,35 +55,42 @@ void setup() {
     }
   }
   Serial.println("GSM intilialisé");
-  char iniMsg[] = "Arduino OK : envoyer 1 pour allumer la pompe";
-  envoiSMS(Simon, iniMsg);  
-  envoiSMS(Alex, iniMsg);
-  envoiSMS(Max, iniMsg);
-  envoiSMS(Denis, iniMsg);
-  envoiSMS(Simon, iniMsg);
-
+  char iniMsg[] = "CoupDePouce opérationnel. Envoyez 1 pour allumer le moteur 1, ou 2 pour le moteur 2 !";
+  
+  envoiSMS(num1, iniMsg);  
+  envoiSMS(num2, iniMsg);
+//envoiSMS(num3, iniMsg);
+  
   blinkLed(LED_BUILTIN,500);
 }
 
 void loop() {
   if (sms.available()) {
-    Serial.print("Message received from : ");
+    Serial.print("Message reçu de : ");
     sms.remoteNumber(senderNumber, 20);
     Serial.println(senderNumber);
 
-    //Allumange demandé
+    //Activation du moteur 1
     if (sms.peek() == '1') {
-      Serial.println("Allumage demandé");
+      Serial.println("Moteur 1 demandé");
       turnServo(90);
-      char txtMsg[] = "Allumage en cours...";
-      envoiSMS(Alex, txtMsg);
-      envoiSMS(Max, txtMsg);
-      envoiSMS(Denis, txtMsg);
-      envoiSMS(Simon, txtMsg);
+      char txtMsg[] = "Le moteur 1 s'active...";
+      envoiSMS(num1, txtMsg);
+      envoiSMS(num2, txtMsg);
     }
-
+    
+    //Activation du moteur 2
+     if (sms.peek() == '2') {
+      Serial.println("Moteur 2 demandé");
+      turnServo(90);
+      char txtMsg[] = "Le moteur 1 s'active...";
+      envoiSMS(num1, txtMsg);
+      envoiSMS(num2, txtMsg);
+    }
+   
+    
     sms.flush();
-    Serial.println("MESSAGE DELETED");
+    Serial.println("MESSAGE EFFACÉ");
   }  
 }
 
@@ -131,3 +140,117 @@ int turnServo(int rotation) {
   delay(500);
   myservo.detach();
 }
+
+void OneStep(bool dir){
+  if(dir){
+    switch(step_number){
+      case 0:
+        digitalWrite(STEPPER_PIN_1, HIGH);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, LOW);
+      break;
+      case 1:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, HIGH);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, LOW);
+      break;
+      case 2:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, HIGH);
+        digitalWrite(STEPPER_PIN_4, LOW);
+        break;
+      case 3:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, HIGH);
+        break;
+    } 
+  }
+  else{
+    switch(step_number){
+      case 0:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, HIGH);
+        break;
+      case 1:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, HIGH);
+        digitalWrite(STEPPER_PIN_4, LOW);
+        break;
+      case 2:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, HIGH);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, LOW);
+        break;
+      case 3:
+        digitalWrite(STEPPER_PIN_1, HIGH);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, LOW);
+    } 
+  }
+  
+  void OneStep(bool dir){
+  if(dir){
+    switch(step_number){
+      case 0:
+        digitalWrite(STEPPER_PIN_1, HIGH);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, LOW);
+      break;
+      case 1:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, HIGH);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, LOW);
+      break;
+      case 2:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, HIGH);
+        digitalWrite(STEPPER_PIN_4, LOW);
+        break;
+      case 3:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, HIGH);
+        break;
+    } 
+  }
+  else{
+    switch(step_number){
+      case 0:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, HIGH);
+        break;
+      case 1:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, HIGH);
+        digitalWrite(STEPPER_PIN_4, LOW);
+        break;
+      case 2:
+        digitalWrite(STEPPER_PIN_1, LOW);
+        digitalWrite(STEPPER_PIN_2, HIGH);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, LOW);
+        break;
+      case 3:
+        digitalWrite(STEPPER_PIN_1, HIGH);
+        digitalWrite(STEPPER_PIN_2, LOW);
+        digitalWrite(STEPPER_PIN_3, LOW);
+        digitalWrite(STEPPER_PIN_4, LOW);
+    } 
+  }
