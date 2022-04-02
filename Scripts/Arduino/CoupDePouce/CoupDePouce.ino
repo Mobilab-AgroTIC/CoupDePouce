@@ -36,6 +36,7 @@
 
 
 #include <MKRGSM.h>
+#include "arduino_secrets.h"
 
 #define STEPPER_1_PIN_1 2
 #define STEPPER_1_PIN_2 3
@@ -47,15 +48,17 @@
 #define STEPPER_2_PIN_3 8
 #define STEPPER_2_PIN_4 9
 
-const char PINNUMBER[] = "0000";
+const char PINNUMBER[] = CODE_PIN ;
+char num1[] = numero1;
+char num2[] = numero2;
+
 char initMsg[] = "CoupDePouce operationnel. Envoyez 1 pour allumer le moteur 1, ou 2 pour le moteur 2 !";
-char num1[] = "+33699227482";
 char msg1[] = "Allumage du bouton 1";
 char msg2[] = "Allumage du bouton 2";
-//const char num2[] = ;
 
 char senderNumber[20];
 int step_number = 0;
+
 int IN_1 ;
 int IN_2 ;
 int IN_3 ;
