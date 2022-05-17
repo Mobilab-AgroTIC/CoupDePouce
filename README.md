@@ -65,17 +65,12 @@ Vous pouvez débrancher l'Arduino, on passe au montage.
 
 # Montage des composants
 
-Le montage est très simple. Il faut impérativement brancher l'antenne
+Le montage est très simple. Il faut impérativement brancher l'antenne sur la carte, puis les câbles comme suit :
 
-** "-"   <->   pin GND
-** "5V"   <->   pin VCC
+ - "-"   <->   pin GND
+ - "5V"   <->   pin VCC
 
-** IN1   <->   pin 6
-** IN2   <->   pin 7
-** IN3   <->   pin 8
-** IN4   <->   pin 9
-
-
-
-
-
+ - IN1   <->   pin 6
+ - IN2   <->   pin 7
+ - IN3   <->   pin 8
+ - IN4   <->   pin 9
