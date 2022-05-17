@@ -48,7 +48,7 @@ Ouvrez ensuite CoupDePouce-main > Scripts > Arduino > CoupDePouce_1moteur > Coup
 ![image](https://user-images.githubusercontent.com/24956276/168778694-88b776e7-f3f9-46e8-9a3d-7a6f8aac5c0a.png). Une fenêtre Arduino s'ouvre. Notez qu'il y a deux onglets : 
 CoupDePouce_1moteur.ino et arduino_secrets.h
 
-![image](https://user-images.githubusercontent.com/24956276/168782366-69e5483a-2bd0-440d-9f7f-0874514720c0.png)
+![image](https://user-images.githubusercontent.com/24956276/168793924-a50748bb-0edb-4f66-8bf8-55dd8b184129.png)
 
 
 
