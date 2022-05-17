@@ -9,22 +9,28 @@ CoupDePouce nécéssite :
   - Son atenne associée
   - un moteur "pas à pas" [28byj-48](https://fr.aliexpress.com/item/32906617266.html?spm=a2g0o.productlist.0.0.45025be5Rf1dDb&algo_pvid=9b464eba-f000-4a8b-9fe3-bf1fcc171f3f&algo_exp_id=9b464eba-f000-4a8b-9fe3-bf1fcc171f3f-0&pdp_ext_f=%7B%22sku_id%22%3A%2212000027293392609%22%7D&pdp_npi=2%40dis%21EUR%21%211.76%21%21%212.11%21%21%402100bde716527777656226226ee080%2112000027293392609%21sea) avec sa carte ULN2003 (inclue) : 2€
   - Un [cable micro USB data](https://fr.aliexpress.com/item/32958208619.html?spm=a2g0o.productlist.0.0.22da7e26bJZ9jx&algo_pvid=568f939d-50da-48d5-9a96-0d9570edc883&algo_exp_id=568f939d-50da-48d5-9a96-0d9570edc883-1&pdp_ext_f=%7B%22sku_id%22%3A%2212000025661347345%22%7D&pdp_npi=2%40dis%21EUR%21%212.35%21%21%21%21%21%402100bdd816527785667561725ecad3%2112000025661347345%21sea) (Attention : si vous avez déja ce cable pour votre téléphone ou autre, il faut être bien sûr que l'on peut echanger de la donnée via ce câble (data sync), et pas uniquement recharger)
-  - des [cables Dupont Femelle-Femelle](https://fr.aliexpress.com/item/4000848184096.html?spm=a2g0o.productlist.0.0.741a6a6dmE4jt8&algo_pvid=aedfdd9c-d065-4b2b-8132-cb3ce46ef6ba&algo_exp_id=aedfdd9c-d065-4b2b-8132-cb3ce46ef6ba-2&pdp_ext_f=%7B%22sku_id%22%3A%2210000009393531605%22%7D&pdp_npi=2%40dis%21EUR%21%211.69%21%21%210.26%21%21%402100bdd716527787087616523e02b5%2110000009393531605%21sea) Bien choisir le cable femelle-femelle de 40cm, comme le montre la photo 1 : ![image](https://user-images.githubusercontent.com/24956276/168775555-40b71cad-7cf6-4dff-9ea0-ebbd9e430b6c.png)
+  - des [cables Dupont Femelle-Femelle](https://fr.aliexpress.com/item/4000848184096.html?spm=a2g0o.productlist.0.0.741a6a6dmE4jt8&algo_pvid=aedfdd9c-d065-4b2b-8132-cb3ce46ef6ba&algo_exp_id=aedfdd9c-d065-4b2b-8132-cb3ce46ef6ba-2&pdp_ext_f=%7B%22sku_id%22%3A%2210000009393531605%22%7D&pdp_npi=2%40dis%21EUR%21%211.69%21%21%210.26%21%21%402100bdd716527787087616523e02b5%2110000009393531605%21sea) Bien choisir le cable femelle-femelle de 40cm, comme le montre la photo 1 : 
+
+  - ![image](https://user-images.githubusercontent.com/24956276/168775555-40b71cad-7cf6-4dff-9ea0-ebbd9e430b6c.png)
 
 ## Installation et paramétrage du logiciel Arduino
 ### Installation d'Arduino
 Il faut au préalable installer le [logiciel Arduino](https://www.arduino.cc/en/software) sur son ordinateur. Choisissez l'installation pour votre ordinateur (Windows, linux, mac, etc) comme le montre la photo 2 :
+
 ![image](https://user-images.githubusercontent.com/24956276/168775993-2691511c-9ea9-4fee-9f0e-90afb1747dbb.png)
 L'installation vous posera quelques questions, dites "oui" à tout.
 
 ### Paramétrage d'Arduino pour la carte MKR GSM 1400 ou NB 1500
 Une fois installé, on lance le logiciel Arduino. Une fenêtre s'ouvre.
+
 ![image](https://user-images.githubusercontent.com/24956276/168776482-0613947c-0370-4ca8-819b-ab0c045d7667.png)
 
 On ouvre Outils > Type de cartes > Gestionnaire de Cartes
+
 ![image](https://user-images.githubusercontent.com/24956276/168776797-24dedbd7-e37d-494b-a5fc-c4302abd9980.png)
 
 On recherce depuis la barre de recherche MKR. Une librairie est trouvée : "Arduino SAMD Boards". On clique sur Installer. L'installation peut prendre 1min.
+
 ![image](https://user-images.githubusercontent.com/24956276/168777036-4c035800-1c95-4f91-ac7e-8996d260b482.png)
 
 Tout est configuré ! 
@@ -38,7 +44,13 @@ Sur cette page Github, vous pouvez télécharger le code de CoupDePouce en cliqu
 Le fichier téléchargé est à dézipper : 
 ![image](https://user-images.githubusercontent.com/24956276/168778462-85c77ce9-071b-4fb1-88b8-e2819b0d9c49.png)
 
-Ouvrez ensuite CoupDePouce-main > Scripts > Arduino > CoupDePouce_1moteur > CoupDePouce_1moteur.ino
-![image](https://user-images.githubusercontent.com/24956276/168778694-88b776e7-f3f9-46e8-9a3d-7a6f8aac5c0a.png)
+Ouvrez ensuite CoupDePouce-main > Scripts > Arduino > CoupDePouce_1moteur > CoupDePouce_1moteur.ino 
+![image](https://user-images.githubusercontent.com/24956276/168778694-88b776e7-f3f9-46e8-9a3d-7a6f8aac5c0a.png). Une fenêtre Arduino s'ouvre. Notez qu'il y a deux onglets : 
+CoupDePouce_1moteur.ino et arduino_secrets.h
+
+![image](https://user-images.githubusercontent.com/24956276/168782366-69e5483a-2bd0-440d-9f7f-0874514720c0.png)
+
+
+
 
 
