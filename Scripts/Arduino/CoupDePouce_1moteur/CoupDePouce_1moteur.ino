@@ -108,7 +108,6 @@ void loop() {
       sms.beginSMS(senderNumber);
       sms.print(msg1);
       sms.endSMS();
-      //envoiSMS(num2, txtMsg);
     }
    
     
