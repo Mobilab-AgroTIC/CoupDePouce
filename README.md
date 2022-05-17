@@ -67,8 +67,10 @@ Vous pouvez débrancher l'Arduino, on passe au montage.
 
 Le montage est très simple. Il faut impérativement brancher l'antenne sur la carte, puis les câbles comme suit :
 
+MOTEUR   <->   ARDUINO
+
  - "-"   <->   pin GND
- - "5V"   <->   pin VCC
+ - "5V"   <->  pin VCC
 
  - IN1   <->   pin 6
  - IN2   <->   pin 7
