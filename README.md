@@ -1,8 +1,8 @@
-# CoupDePouce
+CoupDePouce
 
 Le projet permet d'activer un mécansime à distance, via la construction d'un 'doigt connecté', par envoi de SMS.
 
-## Matériel
+# Matériel
 
 CoupDePouce nécéssite : 
   - une carte Arduino [MKR GSM 1400](https://www.kubii.fr/26-arduino/2911-arduino-mkr-gsm-1400-3272496301078.html) ou [NB 1500](https://store.arduino.cc/products/arduino-mkr-nb-1500?selectedStore=eu) : 40€
@@ -13,14 +13,14 @@ CoupDePouce nécéssite :
 
   - ![image](https://user-images.githubusercontent.com/24956276/168775555-40b71cad-7cf6-4dff-9ea0-ebbd9e430b6c.png)
 
-## Installation et paramétrage du logiciel Arduino
-### Installation d'Arduino
+# Installation et paramétrage du logiciel Arduino
+## Installation d'Arduino
 Il faut au préalable installer le [logiciel Arduino](https://www.arduino.cc/en/software) sur son ordinateur. Choisissez l'installation pour votre ordinateur (Windows, linux, mac, etc) comme le montre la photo 2 :
 
 ![image](https://user-images.githubusercontent.com/24956276/168775993-2691511c-9ea9-4fee-9f0e-90afb1747dbb.png)
 L'installation vous posera quelques questions, dites "oui" à tout.
 
-### Paramétrage d'Arduino pour la carte MKR GSM 1400 ou NB 1500
+## Paramétrage d'Arduino pour la carte MKR GSM 1400 ou NB 1500
 Une fois installé, on lance le logiciel Arduino. Une fenêtre s'ouvre.
 
 ![image](https://user-images.githubusercontent.com/24956276/168776482-0613947c-0370-4ca8-819b-ab0c045d7667.png)
@@ -33,9 +33,13 @@ On recherce depuis la barre de recherche MKR. Une librairie est trouvée : "Ardu
 
 ![image](https://user-images.githubusercontent.com/24956276/168777036-4c035800-1c95-4f91-ac7e-8996d260b482.png)
 
+On selectionne finalement la carte utilisée dans outils > Type de Carte > Arduino SAMD > Arduino MKR GSM 1400 : 
+
+![image](https://user-images.githubusercontent.com/24956276/168798769-1dd4935a-432c-4c87-a512-c35bd6eb8f39.png)
+
 Tout est configuré ! 
 
-## Flash du code sur l'Arduino
+# Flash du code sur l'Arduino
 On va maintenant installer le code sur la carte qui permettra de contrôler le moteur et l'utilisation de SMS.
 
 Sur cette page Github, vous pouvez télécharger le code de CoupDePouce en cliquant sur le bouton vert Code > Download ZIP.
@@ -46,9 +50,30 @@ Le fichier téléchargé est à dézipper :
 
 Ouvrez ensuite CoupDePouce-main > Scripts > Arduino > CoupDePouce_1moteur > CoupDePouce_1moteur.ino 
 ![image](https://user-images.githubusercontent.com/24956276/168778694-88b776e7-f3f9-46e8-9a3d-7a6f8aac5c0a.png). Une fenêtre Arduino s'ouvre. Notez qu'il y a deux onglets : 
-CoupDePouce_1moteur.ino et arduino_secrets.h
+CoupDePouce_1moteur.ino et arduino_secrets.h. Dans arduino_secrets.h, vous pouvez renseigner votre code PIN ainsi que le numéro de téléphone de 2 personnes qui recevront le message d'initialisation.
 
 ![image](https://user-images.githubusercontent.com/24956276/168793924-a50748bb-0edb-4f66-8bf8-55dd8b184129.png)
+
+Le code est maintenant prêt à être envoyé sur la carte. Branchez l'arduino à l'ordinateur via la câble USB, puis allez dans Outils > Ports > COMxx. Il faut séléctionner le bon port COM, si vous en avez plusieurs à sipsosition, débranchez la carte Arduino et retournez dans cet onglet pour voir lequel a disparu. C'est celui la qu'il faudra prendre une fois quand vous l'aurez rebranché ;)
+![image](https://user-images.githubusercontent.com/24956276/168798673-c2b3ea28-46b7-49b5-a0cc-5f867a747a61.png)
+
+Cliquez finalement sur le bouton "Téléverser" (en blanc sur l'image) : 
+
+![image](https://user-images.githubusercontent.com/24956276/168799435-aab4b449-4f5c-4a61-bc32-bd5839dc17b6.png)
+
+Vous pouvez débrancher l'Arduino, on passe au montage.
+
+# Montage des composants
+
+Le montage est très simple. Il faut impérativement brancher l'antenne
+
+** "-"   <->   pin GND
+** "5V"   <->   pin VCC
+
+** IN1   <->   pin 6
+** IN2   <->   pin 7
+** IN3   <->   pin 8
+** IN4   <->   pin 9
 
 
 
