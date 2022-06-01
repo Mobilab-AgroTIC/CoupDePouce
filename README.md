@@ -1,4 +1,4 @@
-CoupDePouce
+#CoupDePouce
 
 Le projet permet d'activer un mécansime à distance, via la construction d'un 'doigt connecté', par envoi de SMS. Le système total coûte environ 60€ en 2020
 
