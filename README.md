@@ -1,6 +1,7 @@
 # CoupDePouce
 
-Le projet permet d'activer un mécansime à distance, via la construction d'un 'doigt connecté', par envoi de SMS. Le système total coûte environ 60€
+Le projet permet d'activer un mécansime à distance, via la construction d'un 'doigt connecté', par envoi de SMS. Le système total coûte environ 60€.
+Dans ce tutoriel, nous allons d'abord cosntruire le module (1), puis le programmer (2) pour qu'il s'actionne à la récéption d'un SMS.
 
 # 1. Construction du système CoupDePouce
 
@@ -19,7 +20,19 @@ CoupDePouce nécéssite :
 
 ## 1.2. Montage du système 
 
+Le montage éléctronique est très simple. Il faut impérativement brancher l'antenne sur la carte, puis les câbles comme suit :
+
+MOTEUR <-> ARDUINO
+
+- **"-"** <-> **pin GND**
+- **"5V"** <-> **pin VCC**
+- **IN1** <-> **pin 6**
+- **IN2** <-> **pin 7**
+- **IN3** <-> **pin 8**
+- **IN4** <-> **pin 9**
+
 # 2. Installation et paramétrage du logiciel Arduino
+
 ## 2.1. Installation d'Arduino
 
 Si ceci n'est pas encore fait, il faut au préalable installer le [logiciel Arduino](https://www.arduino.cc/en/software) sur son ordinateur. Choisissez l'installation pour votre ordinateur (Windows, linux, mac, etc) comme le montre la photo 2 :
@@ -28,6 +41,7 @@ Si ceci n'est pas encore fait, il faut au préalable installer le [logiciel Ardu
 L'installation vous posera quelques questions, dites "oui" à tout.
 
 ## 2.2. Paramétrage d'Arduino pour la carte MKR GSM 1400 ou NB 1500
+
 Une fois installé, on lance le logiciel Arduino. Une fenêtre s'ouvre.
 
 ![image](https://user-images.githubusercontent.com/24956276/168776482-0613947c-0370-4ca8-819b-ab0c045d7667.png)
@@ -46,7 +60,7 @@ On selectionne finalement la carte utilisée dans outils > Type de Carte > Ardui
 
 Tout est configuré ! 
 
-# Flash du code sur l'Arduino
+## 2.3. Flash du code sur l'Arduino
 On va maintenant installer le code sur la carte qui permettra de contrôler le moteur et l'utilisation de SMS.
 
 Sur cette page Github, vous pouvez télécharger le code de CoupDePouce en cliquant sur le bouton vert Code > Download ZIP.
@@ -67,20 +81,5 @@ Le code est maintenant prêt à être envoyé sur la carte. Branchez l'arduino �
 Cliquez finalement sur le bouton "Téléverser" (en blanc sur l'image) : 
 
 ![image](https://user-images.githubusercontent.com/24956276/168799435-aab4b449-4f5c-4a61-bc32-bd5839dc17b6.png)
-
-Vous pouvez débrancher l'Arduino, on passe au montage.
-
-# Montage du système
-
-Le montage éléctronique est très simple. Il faut impérativement brancher l'antenne sur la carte, puis les câbles comme suit :
-
-MOTEUR <-> ARDUINO
-
-- **"-"** <-> **pin GND**
-- **"5V"** <-> **pin VCC**
-- **IN1** <-> **pin 6**
-- **IN2** <-> **pin 7**
-- **IN3** <-> **pin 8**
-- **IN4** <-> **pin 9**
 
 Vous pouvez maintenant tester le système en le branchant sur le secteur via l'adaptateur
