@@ -18,10 +18,10 @@
     ** "-"   <->   pin GND
     ** "5V"   <->   pin VCC
 
-    ** IN1   <->   pin 6
-    ** IN2   <->   pin 7
-    ** IN3   <->   pin 8
-    ** IN4   <->   pin 9
+    ** IN1   <->   pin 2
+    ** IN2   <->   pin 3
+    ** IN3   <->   pin 4
+    ** IN4   <->   pin 5
     
 
   Createad 25 March 2019
