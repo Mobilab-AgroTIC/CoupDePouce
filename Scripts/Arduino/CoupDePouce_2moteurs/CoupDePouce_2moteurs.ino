@@ -18,12 +18,19 @@
     ** "-"   <->   pin GND
     ** "5V"   <->   pin VCC
 
+    ** Moteur 1 :
+    ** IN1   <->   pin 2
+    ** IN2   <->   pin 3
+    ** IN3   <->   pin 4
+    ** IN4   <->   pin 5
+
+    ** Moteur 2 :
     ** IN1   <->   pin 6
     ** IN2   <->   pin 7
     ** IN3   <->   pin 8
     ** IN4   <->   pin 9
     
-    ** Le  
+
 
   Createad 25 March 2019
   modified 01 April 2022
