@@ -1,6 +1,6 @@
 
-#define CODE_PIN     "0000"
+#define CODE_PIN     "3012"
 
 
-#define numero1     "+336xxxxxxxx"
-#define numero2     "+336xxxxxxxx"
+#define numero1     "+33699227482"
+#define numero2     "+33699227482"

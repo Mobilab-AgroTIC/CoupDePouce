@@ -37,10 +37,10 @@
 #include <MKRGSM.h>
 #include "arduino_secrets.h"
 
-#define STEPPER_1_PIN_1 2
-#define STEPPER_1_PIN_2 3
-#define STEPPER_1_PIN_3 4
-#define STEPPER_1_PIN_4 5
+#define STEPPER_1_PIN_1 6
+#define STEPPER_1_PIN_2 7
+#define STEPPER_1_PIN_3 8
+#define STEPPER_1_PIN_4 9
 
 
 const char PINNUMBER[] = CODE_PIN ;
@@ -88,6 +88,10 @@ void setup() {
   sms.beginSMS(num1);
   sms.print(initMsg);
   sms.endSMS();
+  delay(1500);
+  sms.beginSMS(num2);
+  sms.print(initMsg);
+  sms.endSMS();
 
   blinkLed(LED_BUILTIN,500);
 
@@ -101,7 +105,7 @@ void loop() {
     Serial.println(senderNumber);
 
     //Activation du moteur 1
-    if (sms.peek() == '1') {
+    if (sms.peek() == '#') {
       Serial.println("Moteur 1 demandé");
       stepper(1,true,100);
       stepper(1,false,100);
