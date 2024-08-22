@@ -47,7 +47,7 @@ const char PINNUMBER[] = CODE_PIN ;
 char num1[] = numero1;
 char num2[] = numero2;
 
-char initMsg[] = "CoupDePouce operationnel. Envoyez 1 pour allumer le moteur 1 !";
+char initMsg[] = "CoupDePouce operationnel. Envoyez 1 pour allumer le moteur !";
 char msg1[] = "Allumage du bouton 1";
 
 char senderNumber[20];
