@@ -107,8 +107,8 @@ void loop() {
     //Activation du moteur 1
     if (sms.peek() == '#') {
       Serial.println("Moteur 1 demandé");
-      stepper(1,true,100);
-      stepper(1,false,100);
+      stepper(1,false,500);
+      stepper(1,true,500);
       sms.beginSMS(senderNumber);
       sms.print(msg1);
       sms.endSMS();
@@ -191,7 +191,7 @@ void stepper(int motor, bool dir, int rotation){
     if(step_number > 3){
       step_number = 0;
     }
-    delay(10);
+    delay(20);
   }
   shutDownStepper();
 }
