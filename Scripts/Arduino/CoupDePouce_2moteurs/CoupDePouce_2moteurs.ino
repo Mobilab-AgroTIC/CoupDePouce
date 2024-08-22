@@ -123,8 +123,8 @@ void loop() {
     //Activation du moteur 1
     if (sms.peek() == '1') {
       Serial.println("Moteur 1 demandé");
-      stepper(1,true,100);
-      stepper(1,false,100);
+      stepper(1,false,500);
+      stepper(1,true,500);
       sms.beginSMS(senderNumber);
       sms.print(msg1);
       sms.endSMS();
@@ -134,8 +134,8 @@ void loop() {
     //Activation du moteur 2
      if (sms.peek() == '2') {
       Serial.println("Moteur 2 demandé");
-      stepper(2,true,100);
-      stepper(2,false,100);
+      stepper(2,false,500);
+      stepper(2,true,500);
       sms.beginSMS(senderNumber);
       sms.print(msg2);
       sms.endSMS();
@@ -226,7 +226,7 @@ void stepper(int motor, bool dir, int rotation){
     if(step_number > 3){
       step_number = 0;
     }
-    delay(10);
+    delay(20);
   }
   shutDownStepper();
 }
