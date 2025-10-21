@@ -1,6 +1,7 @@
 // ===========================================================
-//    FICHIER D'EXEMPLE : exemple_secrets.h
-// ⚠ IMPORTANT : VOUS DEVEZ MODIFIER CE FICHIER ! Comment le modifier :
+//   FICHIER D'EXEMPLE : exemple_secrets.h
+//
+// ⚠ IMPORTANT : Ne laissez pas ce fichier tel quel !
 //
 // 1. Faites un clic droit > Renommer ce fichier en : secrets.h 
 // (il faut enlever le mot "exemple_" dans le nom)
