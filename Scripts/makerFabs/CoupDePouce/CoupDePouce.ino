@@ -101,7 +101,7 @@ static void sendSMSAll(const String& text) {
   }
 }
 
-// --------- Servo helpers ----------
+// --------- Servo ----------
 static void moveServo(int minAngle, int maxAngle) {
   if (minAngle < 0) minAngle = 0;
   if (maxAngle > 180) maxAngle = 180;
