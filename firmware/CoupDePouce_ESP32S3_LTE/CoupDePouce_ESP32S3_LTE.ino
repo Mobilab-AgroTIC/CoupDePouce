@@ -1,4 +1,4 @@
-#include <Arduino.h>
+#include <Arduino.h> 
 #include <ESP32Servo.h>
 #include "secrets.h"
 
@@ -176,7 +176,7 @@ void setup() {
   sendAT("AT+CMGD=1,4");
 
   // Message de démarrage
-  sendSMSAll("CoupDePouce operationnel. Repondez '1' pour activer.");
+  sendSMSAll("CoupDePouce operationnel. Envoyez '1' pour activer.");
 
   // Petit mouvement de test
   moveServo(0,20);
