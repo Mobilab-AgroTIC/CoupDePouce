@@ -1,6 +1,13 @@
 #include <Arduino.h> 
 #include <ESP32Servo.h>
-#include "secrets.h"
+
+// === CODE PIN ET NUMEROS ===
+
+// Mets ton code PIN entre les guillemets ci-dessous, ex: "1234". Laisse "" si pas de PIN.
+#define SIM_PIN "0000"     
+
+// Remplace les numéros ci-dessous par les numéros de téléphone (Sans espace, et au format international (+33 pour la France))
+// Chaque numéro est entre guillemets "" et séparés par une virgule "," (après le dernier numéro, pas de virgule).
 
 // === UART modem (A7670E) ===
 HardwareSerial SerialAT(2);
@@ -8,11 +15,6 @@ HardwareSerial SerialAT(2);
 #define IO_TXD2        48
 #define IO_GSM_PWRKEY   4
 
-// === Servo ===
-Servo myservo;
-#define SERVO_PIN      40
-
-const size_t N_DESTS = sizeof(DESTS) / sizeof(DESTS[0]);
 
 // --------- Utils AT ----------
 static void purgeInput(uint32_t ms=50) {
@@ -110,7 +112,9 @@ static void moveServo(int minAngle, int maxAngle) {
   for (int p = minAngle; p <= maxAngle; p++) { myservo.write(p); delay(15); }
   delay(1000);
   for (int p = maxAngle; p >= minAngle; p--) { myservo.write(p); delay(15); }
+  delay(300);
   myservo.detach();
+  pinMode(SERVO_PIN, INPUT_PULLDOWN); // évite que le fil signal flotte
 }
 
 
