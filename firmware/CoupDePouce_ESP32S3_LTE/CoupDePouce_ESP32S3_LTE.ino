@@ -8,6 +8,15 @@
 
 // Remplace les numéros ci-dessous par les numéros de téléphone (Sans espace, et au format international (+33 pour la France))
 // Chaque numéro est entre guillemets "" et séparés par une virgule "," (après le dernier numéro, pas de virgule).
+static const char* DESTS[] = {  
+  "+336xxxxxxxx",               
+  "+336xxxxxxxx"                
+};
+const size_t N_DESTS = sizeof(DESTS) / sizeof(DESTS[0]);
+
+// === Servo ===
+Servo myservo;
+#define SERVO_PIN      40
 
 // === UART modem (A7670E) ===
 HardwareSerial SerialAT(2);
