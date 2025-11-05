@@ -5,7 +5,7 @@
 // Mets ton code PIN entre guillemets (laisser "" si pas de PIN)
 #define SIM_PIN "0000"
 
-// Numéros destinataires en E.164 (ex: +336XXXXXXXX)
+// Numéros destinataires en format international
 static const char* DESTS[] = {
   "+336xxxxxxxx",
   "+336xxxxxxxx",
@@ -32,9 +32,9 @@ struct ServoConf {
 
 // --- AJUSTE ICI TES SERVOS (ex: A/B par défaut) ---
 static ServoConf SERVOS[] = {
-  //  id, Broche, type,    angleMax, Sens_Horaire
-  { 'A', 40,  ROTATE,  90,       HORAIRE     },
-  { 'B', 41,  PUSH,    60,       ANTIHORAIRE },
+  //  id  , Broche,  type , angleMax, Sens
+  {   'A' , 40 , ROTATE , 90 , HORAIRE     },
+  {   'B' , 41 , PUSH   , 60 , ANTIHORAIRE },
   // { 'C', 42,  ROTATE, 120,      HORAIRE  },  // exemple
 };
 
