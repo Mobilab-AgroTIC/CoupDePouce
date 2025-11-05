@@ -7,7 +7,7 @@
 
 // Numéros destinataires en E.164 (ex: +336XXXXXXXX)
 static const char* DESTS[] = {
-  "+33699227482",
+  "+336xxxxxxxx",
   "+336xxxxxxxx",
 };
 const size_t N_DESTS = sizeof(DESTS) / sizeof(DESTS[0]);
