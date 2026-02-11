@@ -14,9 +14,6 @@ const size_t N_DESTS = sizeof(DESTS) / sizeof(DESTS[0]);
 
 // ================== MODEM A7670E (UART2) ==================
 HardwareSerial SerialAT(2);
-#define ServoA          40
-#define ServoB          41
-// #define ServoC       42
 
 #define IO_RXD2         47
 #define IO_TXD2         48
@@ -37,8 +34,8 @@ struct ServoConf {
 // --- AJUSTE ICI TES SERVOS (ex: A/B par défaut) ---
 static ServoConf SERVOS[] = {
   //  id  , Broche,  type , angleMax, Sens
-  {   'A' , ServoA , ROTATE , 90 , HORAIRE     },
-  {   'B' , ServoB , PUSH   , 60 , ANTIHORAIRE },
+  {   'A' , 40 , ROTATE , 90 , HORAIRE     },
+  {   'B' , 41 , PUSH   , 60 , ANTIHORAIRE },
   // { 'C', ServoC,  ROTATE, 120,      HORAIRE  },  // exemple
 };
 
