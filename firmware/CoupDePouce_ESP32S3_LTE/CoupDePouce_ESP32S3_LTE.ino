@@ -14,6 +14,10 @@ const size_t N_DESTS = sizeof(DESTS) / sizeof(DESTS[0]);
 
 // ================== MODEM A7670E (UART2) ==================
 HardwareSerial SerialAT(2);
+#define ServoA          40
+#define ServoB          41
+// #define ServoC       42
+
 #define IO_RXD2         47
 #define IO_TXD2         48
 #define IO_GSM_PWRKEY    4
@@ -33,9 +37,9 @@ struct ServoConf {
 // --- AJUSTE ICI TES SERVOS (ex: A/B par défaut) ---
 static ServoConf SERVOS[] = {
   //  id  , Broche,  type , angleMax, Sens
-  {   'A' , 40 , ROTATE , 90 , HORAIRE     },
-  {   'B' , 41 , PUSH   , 60 , ANTIHORAIRE },
-  // { 'C', 42,  ROTATE, 120,      HORAIRE  },  // exemple
+  {   'A' , ServoA , ROTATE , 90 , HORAIRE     },
+  {   'B' , ServoB , PUSH   , 60 , ANTIHORAIRE },
+  // { 'C', ServoC,  ROTATE, 120,      HORAIRE  },  // exemple
 };
 
 const size_t N_SERVOS = sizeof(SERVOS) / sizeof(SERVOS[0]);
@@ -228,7 +232,6 @@ void setup() {
   // Sync modem
   for (int i=0; i<5; i++) { sendAT("AT"); if (waitFor("OK", 800)) break; delay(150); }
 
-  // Hygiène
   sendAT("ATE0");       // echo off
   sendAT("AT+CMEE=2");  // erreurs verbeuses
 
