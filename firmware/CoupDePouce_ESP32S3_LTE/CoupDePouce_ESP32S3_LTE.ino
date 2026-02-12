@@ -8,16 +8,9 @@
 // Numéros destinataires en format international
 static const char* DESTS[] = {
   "+336xxxxxxxx",
-  "+336xxxxxxxx",
 };
+
 const size_t N_DESTS = sizeof(DESTS) / sizeof(DESTS[0]);
-
-// ================== MODEM A7670E (UART2) ==================
-HardwareSerial SerialAT(2);
-
-#define IO_RXD2         47
-#define IO_TXD2         48
-#define IO_GSM_PWRKEY    4
 
 // ================== SERVOS ==================
 enum ServoType { ROTATE = 0, PUSH = 1 };
@@ -35,7 +28,7 @@ struct ServoConf {
 static ServoConf SERVOS[] = {
   //  id  , Broche,  type , angleMax, Sens
   {   'A' , 40 , ROTATE , 90 , HORAIRE     },
-  {   'B' , 41 , PUSH   , 60 , ANTIHORAIRE },
+  // {   'B' , 41 , PUSH   , 60 , ANTIHORAIRE },
   // { 'C', ServoC,  ROTATE, 120,      HORAIRE  },  // exemple
 };
 
@@ -43,6 +36,13 @@ const size_t N_SERVOS = sizeof(SERVOS) / sizeof(SERVOS[0]);
 
 // Moteur servo unique réutilisé (un à la fois)
 Servo g_servo;
+
+// ================== MODEM A7670E (UART2) ==================
+HardwareSerial SerialAT(2);
+
+#define IO_RXD2         47
+#define IO_TXD2         48
+#define IO_GSM_PWRKEY    4
 
 // ================== OUTILS AT ==================
 static void purgeInput(uint32_t ms=50) {
