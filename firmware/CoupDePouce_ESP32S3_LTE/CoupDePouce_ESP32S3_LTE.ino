@@ -27,9 +27,8 @@ struct ServoConf {
 // --- AJUSTE ICI TES SERVOS (ex: A/B par défaut) ---
 static ServoConf SERVOS[] = {
   //  id  , Broche,  type , angleMax, Sens
-  {   'A' , 40 , ROTATE , 90 , HORAIRE     },
-  // {   'B' , 41 , PUSH   , 60 , ANTIHORAIRE },
-  // { 'C', ServoC,  ROTATE, 120,      HORAIRE  },  // exemple
+  {   'A' , 40 , PUSH , 90 , HORAIRE     },
+  // {   'B' , 41 , ROTATE   , 60 , ANTIHORAIRE }, 
 };
 
 const size_t N_SERVOS = sizeof(SERVOS) / sizeof(SERVOS[0]);
